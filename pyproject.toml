@@ -1,0 +1,81 @@
+[project]
+name = "django-pyhub-components"
+version = "0.1.0"
+description = "django components library by PyHub"
+authors = [{ name = "Chinseok Lee", email = "me@pyhub.kr" }]
+dependencies = [
+    "django>=4.0.0",
+    "django-cotton",
+]
+requires-python = ">=3.9"
+readme = "README.md"
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Django",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-django",
+    "pytest-testdox",
+    "pytest-asyncio",
+    "django-debug-toolbar",
+    "django-environ",
+    "django-lifecycle",
+]
+dev = ["django-debug-toolbar", "black", "isort", "ruff", "djlint"]
+
+[project.urls]
+Homepage = "https://github.com/pyhub-kr/django-pyhub-components"
+Documentation = "https://django-pyhub-components.readthedocs.io/"
+Repository = "https://github.com/pyhub-kr/django-pyhub-components"
+Issues = "https://github.com/pyhub-kr/django-pyhub-components/issues"
+# Changelog = "https://github.com/pyhub-kr/django-pyhub-components/blob/main/CHANGELOG.md"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pyhub_components"]
+exclude = ["src/pyhub_components/static_src/**/*", "**/__pycache__", "**/.DS_Store"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+DJANGO_SETTINGS_MODULE = "tests.myproj.settings"
+python_files = ["test_*.py", "*_test.py"]
+addopts = "-ra --testdox --disable-warnings"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+env = ["DATABASE_URL=sqlite://:memory:"]
+
+[tool.black]
+line-length = 120
+target-version = ["py39", "py310", "py311", "py312"]
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+
+# https://www.djlint.com/docs/configuration/
+[tool.djlint]
+profile = "django"
+indent = 2
+
