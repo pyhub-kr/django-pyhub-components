@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 # Project information
-project = "django-pyhub-ai"
+project = "django-pyhub-components"
 author = "Chinseok Lee"
 
 # Extensions
@@ -43,7 +43,7 @@ if is_enable_comments:
     # https://sphinx-comments.readthedocs.io/en/latest/utterances.html#activate-utteranc-es
     comments_config = {
         "utterances": {
-            "repo": "pyhub-kr/django-pyhub-ai-feedback",
+            "repo": "pyhub-kr/django-pyhub-components-feedback",
             "issue-term": "pathname",
             "theme": "github-light",
             "label": "comment",
@@ -57,7 +57,7 @@ html_theme = "pydata_sphinx_theme"
 html_favicon = "./assets/favicon-128.png"
 html_context = {
     "github_user": "pyhub-kr",
-    "github_repo": "django-pyhub-ai",
+    "github_repo": "django-pyhub-components",
     "github_version": "main",
     "doc_path": "docs",
     # https://tagmanager.google.com/?hl=ko#/container/accounts/6260619830/containers/201568180/workspaces/2
@@ -82,7 +82,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/pyhub-kr/django-pyhub-ai",
+            "url": "https://github.com/pyhub-kr/django-pyhub-components",
             "icon": "fa-brands fa-square-github",
             "type": "fontawesome",
         },
